@@ -18,6 +18,7 @@ public class Main {
             System.out.println("1 - Cadastrar usuário");
             System.out.println("2 - Listar usuários");
             System.out.println("3 - Usuário por ID");
+            System.out.println("4 - Remover usuário por ID");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -74,6 +75,26 @@ public class Main {
                     System.out.println("Usuário não encontrado.");
                 }
 
+
+            } else if (opcao == 4) {
+                System.out.println("Digite o ID do usuário que deseja remover: ");
+                int idRemover = scanner.nextInt();
+                scanner.nextLine();
+
+                boolean removido = false;
+
+                for ( Usuario u : usuarios) {
+                    if (u.getId() == idRemover) {
+                        usuarios.remove(u);
+                        removido = true;
+                        System.out.println("Usuário removido com sucesso.");
+                        break;
+                    }
+                }
+
+                if (!removido) {
+                    System.out.println("Usuário não encontrado");
+                }
 
 
             } else if (opcao == 0) {
