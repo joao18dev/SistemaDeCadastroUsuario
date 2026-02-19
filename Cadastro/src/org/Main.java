@@ -19,6 +19,7 @@ public class Main {
             System.out.println("2 - Listar usuários");
             System.out.println("3 - Usuário por ID");
             System.out.println("4 - Remover usuário por ID");
+            System.out.println("5 - Editar usuário por ID");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -96,6 +97,33 @@ public class Main {
                     System.out.println("Usuário não encontrado");
                 }
 
+
+            } else if (opcao == 5) {
+                System.out.println("Digite o ID do usuário que deseja editar");
+                int ideditar = scanner.nextInt();
+                scanner.nextLine();
+
+                boolean encontrado = false;
+
+                for (Usuario u : usuarios) {
+                    if (u.getId() == ideditar) {
+                        System.out.print("Digite o novo Nome: ");
+                        String novoNome = scanner.nextLine();
+
+                        System.out.print("Digite o novo Email: ");
+                        String novoEmail = scanner.nextLine();
+
+                        u.setNome(novoNome);
+                        u.setEmail(novoEmail);
+
+                        System.out.println("Dados do usuário editado com sucesso.");
+                        encontrado = true;
+                        break;
+
+                    }
+                } if (!encontrado) {
+                    System.out.println("Usuário não encontrado.");
+                }
 
             } else if (opcao == 0) {
                 System.out.println("Saindo do sistema...");
